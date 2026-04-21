@@ -16,3 +16,5 @@ predictionsRouter.get("/", validateApiKey, (_req: Request, res: Response) => {
     meta: { count: MOCK_MARKETS.length, simulated: true },
   });
 });
+
+// prune stale entries to prevent memory growth
