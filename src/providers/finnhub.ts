@@ -30,3 +30,5 @@ export async function getQuoteFinnhub(symbol: string): Promise<Quote | null> {
     return null;
   }
 }
+
+// update README with full feature list
