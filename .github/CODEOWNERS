@@ -1,0 +1,7 @@
+* @amercer-dev
+/src/providers/ @amercer-dev @lena-voronova
+/src/routes/checkout.ts @amercer-dev @jxu-eng
+/src/routes/webhook.ts @amercer-dev @jxu-eng
+/tests/ @jxu-eng @priya-das
+/.github/ @amercer-dev
+/docs/ @tburke-dev
