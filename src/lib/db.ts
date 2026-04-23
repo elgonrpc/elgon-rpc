@@ -30,3 +30,5 @@ export async function upsert(table: string, record: Record<string, any>): Promis
   }
   return true;
 }
+
+// escape HTML in symbol names
