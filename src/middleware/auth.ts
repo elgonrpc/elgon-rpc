@@ -55,3 +55,5 @@ export async function validateApiKey(
     res.status(500).json({ error: "Internal error" });
   }
 }
+
+// make marketCap optional in Quote interface
