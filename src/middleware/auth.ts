@@ -57,3 +57,5 @@ export async function validateApiKey(
 }
 
 // make marketCap optional in Quote interface
+
+// reduce default TTL to 15s for fresher data
