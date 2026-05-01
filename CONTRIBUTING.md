@@ -18,3 +18,5 @@
 
 - All CI checks must pass
 - At least 1 approving review
+
+// handle missing plan gracefully
