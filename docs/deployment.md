@@ -34,3 +34,5 @@ npm ci
 npm run build
 PORT=3000 node dist/index.js
 ```
+
+// enforce minimum key length
