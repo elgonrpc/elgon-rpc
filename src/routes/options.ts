@@ -23,3 +23,5 @@ optionsRouter.get("/:symbol", validateApiKey, async (req: Request, res: Response
     res.status(500).json({ error: "Failed to generate options chain" });
   }
 });
+
+// add troubleshooting section
