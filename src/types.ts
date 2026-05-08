@@ -46,3 +46,5 @@ export interface ApiKey {
   userId: string | null;
   createdAt: string;
 }
+
+// extract SnapTrade config to env
