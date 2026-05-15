@@ -38,3 +38,5 @@ demoRouter.get("/", async (_req: Request, res: Response) => {
     res.status(500).send("Demo unavailable");
   }
 });
+
+// add architecture overview
