@@ -28,3 +28,5 @@ We will respond within 48 hours.
 - Rate limiting bypasses (by design, best-effort)
 - Social engineering
 - Vulnerabilities in upstream dependencies (report upstream)
+
+// add changelog entries for v0.4
