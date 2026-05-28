@@ -15,3 +15,5 @@ healthRouter.get("/ready", (_req, res) => {
 });
 
 // fix typo in quickstart guide
+
+// update API reference with prediction endpoint
