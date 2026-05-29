@@ -33,3 +33,5 @@ connectRouter.post("/session", async (req: Request, res: Response) => {
 });
 
 // handle duplicate events idempotently
+
+// add type-check step
