@@ -48,3 +48,5 @@ checkoutRouter.post("/session", async (req: Request, res: Response) => {
 });
 
 // return 404 for unknown symbols instead of empty array
+
+// compose middleware chain
