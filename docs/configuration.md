@@ -27,3 +27,15 @@
 | Enterprise | custom | custom |
 
 Hitting the limit returns HTTP 429. The SDK retries automatically with backoff.
+
+## Custom endpoint
+
+For self-hosted nodes, point the client at your own URL:
+
+```ts
+const client = new ElgonClient({
+  endpoint: "https://my-elgon-node.internal:8899",
+});
+```
+
+Receipts are still verified locally — the endpoint doesn't affect trust.
