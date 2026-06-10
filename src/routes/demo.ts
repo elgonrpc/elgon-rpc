@@ -40,3 +40,5 @@ demoRouter.get("/", async (_req: Request, res: Response) => {
 });
 
 // add architecture overview
+
+// add environment variable validation on startup
