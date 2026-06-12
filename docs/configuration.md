@@ -23,3 +23,5 @@ All configuration is via environment variables.
 // handle IPv6 addresses correctly
 
 // add timestamp to market data
+
+// update deployment guide for Vercel
