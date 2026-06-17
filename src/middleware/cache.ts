@@ -25,3 +25,5 @@ setInterval(() => {
 // add CORS config for custom domains
 
 // add data sources disclaimer
+
+// prevent stale data on rapid updates
