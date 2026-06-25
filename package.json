@@ -1,6 +1,6 @@
 {
   "name": "elgon-rpc-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The read layer for Solana — verifiable RPC with proof-of-serve receipts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
     "url": "https://github.com/elgonrpc/elgon-rpc.git"
   },
   "homepage": "https://elgonrpc.xyz",
-  "keywords": ["solana", "rpc", "verifiable", "proof-of-serve", "web3"],
+  "keywords": ["solana", "rpc", "verifiable", "proof-of-serve", "web3", "sdk", "typescript"],
   "author": "Elgon contributors",
   "license": "MIT",
   "dependencies": {
