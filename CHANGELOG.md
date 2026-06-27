@@ -1,26 +1,24 @@
 # Changelog
 
-## [0.2.0-rc] — 2026-06-05
+## [0.2.0] — 2026-06-27
 
 ### Added
-- Retry logic with jittered exponential backoff (`withRetry`)
-- Custom error types: `NetworkError`, `TimeoutError`, `ReceiptVerificationError`
-- Configuration reference documentation
-- ESLint setup with TypeScript rules
-- Unit tests for receipt verification, client, and retry logic
-- Batch read and retry examples
-- `.npmignore` for clean publishes
-- Node registry stub (`src/constants.ts`)
-- `RetryConfig` and `timeoutMs` in `ClientOptions`
+- Node discovery: `discoverNodes()` and `closestNode()` helpers
+- Batch read: `batchRead()` with configurable concurrency
+- Utility helpers: `lamportsToSol`, `solToLamports`, `abbreviateAddress`, `chunks`
+- GitHub issue templates (bug report, feature request)
+- Documentation: discovery, batch reads
 
 ### Changed
-- Client now uses `withRetry` internally for all reads
-- `types.ts` expanded with `RetryConfig`, `ClientOptions.retry`, `VerifyResult`
-- CI workflow includes lint step
+- Bumped version to 0.2.0
 
 ## [0.1.0] — 2026-05-18
 
 ### Added
 - `ElgonClient` with `getBalance`, `getAccountInfo`, `getTokenAccountBalance`, `getSlot`
 - Proof-of-serve receipt verification via `verify()`
-- Documentation: quickstart, endpoints, receipts, architecture, errors
+- Built-in retry with jittered exponential backoff
+- Typed errors: `NetworkError`, `TimeoutError`, `ReceiptVerificationError`
+- Freshness check via optional `headSlot` parameter
+- Documentation: quickstart, endpoints, receipts, architecture, errors, configuration
+- ESLint setup, CI workflow with lint step
