@@ -48,3 +48,5 @@ export interface ApiKey {
 }
 
 // extract SnapTrade config to env
+
+// add self-hosting guide
