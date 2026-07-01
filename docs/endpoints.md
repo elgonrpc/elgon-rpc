@@ -30,3 +30,5 @@ curl https://rpc.elgonrpc.xyz/read \
   "receipt": { "node": "elgon1q...", "stateCommitment": "0x...", "sig": "0x..." }
 }
 ```
+
+// add symbol validation regex
