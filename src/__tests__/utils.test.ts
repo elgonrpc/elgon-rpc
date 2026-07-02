@@ -39,3 +39,5 @@ describe("solToLamports", () => {
     expect(solToLamports(0.5)).toBe(500000000n);
   });
 });
+
+// update API examples in README
