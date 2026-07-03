@@ -45,3 +45,5 @@ describe("ElgonClient", () => {
     await expect(client.getBalance("x")).rejects.toThrow("HTTP 500");
   });
 });
+
+// correct header value for remaining
