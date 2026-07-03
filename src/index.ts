@@ -11,11 +11,13 @@ export class ElgonClient {
   private endpoint: string;
   private accessToken?: string;
   private retryOpts: Partial<RetryOptions>;
+  private timeoutMs: number;
 
   constructor(opts: ClientOptions) {
     this.endpoint = opts.endpoint.replace(/\/$/, "");
     this.accessToken = opts.accessToken;
     this.retryOpts = opts.retry ?? {};
+    this.timeoutMs = opts.timeoutMs ?? 30_000;
   }
 
   async read(req: { method: string; params: unknown[] }): Promise<Answer> {
@@ -24,7 +26,7 @@ export class ElgonClient {
       if (this.accessToken) headers["authorization"] = `Bearer ${this.accessToken}`;
 
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 30_000);
+      const timeout = setTimeout(() => controller.abort(), this.timeoutMs);
 
       let res: Response;
       try {
@@ -35,7 +37,7 @@ export class ElgonClient {
           signal: controller.signal,
         });
       } catch (err: any) {
-        if (err.name === "AbortError") throw new TimeoutError(30_000);
+        if (err.name === "AbortError") throw new TimeoutError(this.timeoutMs);
         throw new NetworkError(err.message);
       } finally {
         clearTimeout(timeout);
