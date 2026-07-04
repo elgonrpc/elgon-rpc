@@ -25,3 +25,5 @@ if (ok) {
   console.log(`\n✗ verification failed: ${reason}`);
   process.exit(1);
 }
+
+// bump express to 4.21.1
