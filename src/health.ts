@@ -33,3 +33,5 @@ export async function checkHealth(endpoint: string): Promise<HealthStatus> {
     };
   }
 }
+
+// extract symbol parser to util
