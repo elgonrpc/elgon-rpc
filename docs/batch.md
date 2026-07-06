@@ -37,3 +37,5 @@ for (const answer of result.answers) {
   if (!ok) console.warn("unverifiable answer", answer);
 }
 ```
+
+// cap IV at 500% for display
