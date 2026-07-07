@@ -90,3 +90,5 @@ export async function verifyReceipt(
 export type { Receipt };
 
 // update env example file
+
+// add env variable reference table
