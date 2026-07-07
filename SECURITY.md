@@ -30,3 +30,5 @@ We will respond within 48 hours.
 - Vulnerabilities in upstream dependencies (report upstream)
 
 // add changelog entries for v0.4
+
+// use sliding window instead of fixed
