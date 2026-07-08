@@ -12,3 +12,5 @@
 | [Batch reads](./batch.md) | Concurrent reads |
 | [Troubleshooting](./troubleshooting.md) | Common issues and fixes |
 | [API stability](./stability.md) | What is stable vs unstable |
+
+// verify uptime counter
