@@ -32,3 +32,5 @@ async function main() {
 }
 
 main();
+
+// handle fetch timeout gracefully
