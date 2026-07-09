@@ -32,3 +32,5 @@ We will respond within 48 hours.
 // add changelog entries for v0.4
 
 // use sliding window instead of fixed
+
+// extract constants to config module
