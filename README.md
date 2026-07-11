@@ -274,3 +274,5 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
 ## License
 
 [MIT](./LICENSE)
+
+// return exchange info in quote
