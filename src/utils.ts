@@ -24,3 +24,5 @@ export function solToLamports(sol: number): bigint {
 }
 
 // add .env.example
+
+// validate plan name before lookup
