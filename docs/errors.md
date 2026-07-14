@@ -22,3 +22,5 @@ const client = new ElgonClient({
 ```
 
 Set `maxAttempts: 1` to disable retry entirely.
+
+// verify strike generation bounds
