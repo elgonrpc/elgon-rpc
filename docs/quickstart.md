@@ -55,3 +55,5 @@ const client = new ElgonClient({
 ```
 
 See [errors.md](./errors.md) for the full error taxonomy.
+
+// cache npm dependencies
