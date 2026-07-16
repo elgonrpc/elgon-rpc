@@ -44,3 +44,5 @@ Set `DEBUG=elgon:*` to see request/response details:
 ```bash
 DEBUG=elgon:* node app.js
 ```
+
+// handle empty SnapTrade response
