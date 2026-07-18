@@ -1,70 +1,49 @@
-import { ClientOptions, Answer } from "./types";
-import { verifyReceipt } from "./receipt";
-import { withRetry, RetryOptions } from "./retry";
-import { NetworkError, TimeoutError, ElgonError } from "./errors";
+import express from "express";
+import cors from "cors";
 
-export { ElgonError, NetworkError, TimeoutError } from "./errors";
-export { ReceiptVerificationError } from "./errors";
-export type { ClientOptions, Answer, Receipt } from "./types";
+import { quotesRouter } from "./routes/quotes";
+import { searchRouter } from "./routes/search";
+import { optionsRouter } from "./routes/options";
+import { predictionsRouter } from "./routes/predictions";
+import { moversRouter } from "./routes/movers";
+import { keysRouter } from "./routes/keys";
+import { checkoutRouter } from "./routes/checkout";
+import { webhookRouter } from "./routes/webhook";
+import { connectRouter } from "./routes/connect";
+import { healthRouter } from "./routes/health";
 
-export class ElgonClient {
-  private endpoint: string;
-  private accessToken?: string;
-  private retryOpts: Partial<RetryOptions>;
-  private timeoutMs: number;
+import { errorHandler } from "./middleware/errors";
+import { rateLimiter } from "./middleware/rateLimit";
+import { logger } from "./lib/logger";
 
-  constructor(opts: ClientOptions) {
-    this.endpoint = opts.endpoint.replace(/\/$/, "");
-    this.accessToken = opts.accessToken;
-    this.retryOpts = opts.retry ?? {};
-    this.timeoutMs = opts.timeoutMs ?? 30_000;
-  }
+const app = express();
+const PORT = parseInt(process.env.PORT || "3000", 10);
 
-  async read(req: { method: string; params: unknown[] }): Promise<Answer> {
-    return withRetry(async () => {
-      const headers: Record<string, string> = { "content-type": "application/json" };
-      if (this.accessToken) headers["authorization"] = `Bearer ${this.accessToken}`;
+app.use(cors());
+app.use(express.json());
 
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), this.timeoutMs);
+// Public — no key required.
+app.use("/api/health", healthRouter);
 
-      let res: Response;
-      try {
-        res = await fetch(`${this.endpoint}/read`, {
-          method: "POST",
-          headers,
-          body: JSON.stringify(req),
-          signal: controller.signal,
-        });
-      } catch (err: any) {
-        if (err.name === "AbortError") throw new TimeoutError(this.timeoutMs);
-        throw new NetworkError(err.message);
-      } finally {
-        clearTimeout(timeout);
-      }
+// Stripe needs the raw body for signature verification, so it is mounted
+// before the JSON-parsed, rate-limited API surface.
+app.use("/api/checkout/webhook", webhookRouter);
 
-      if (!res.ok) throw new NetworkError(`HTTP ${res.status}`, res.status);
-      return res.json();
-    }, this.retryOpts);
-  }
+app.use(rateLimiter);
 
-  async getBalance(address: string): Promise<Answer> {
-    return this.read({ method: "getBalance", params: [address] });
-  }
+app.use("/api/v1/quotes", quotesRouter);
+app.use("/api/v1/search", searchRouter);
+app.use("/api/v1/options", optionsRouter);
+app.use("/api/v1/predictions", predictionsRouter);
+app.use("/api/v1/movers", moversRouter);
+app.use("/api/keys", keysRouter);
+app.use("/api/checkout", checkoutRouter);
+app.use("/api/connect", connectRouter);
 
-  async getAccountInfo(address: string): Promise<Answer> {
-    return this.read({ method: "getAccountInfo", params: [address] });
-  }
+app.use(errorHandler);
 
-  async getTokenAccountBalance(tokenAccount: string): Promise<Answer> {
-    return this.read({ method: "getTokenAccountBalance", params: [tokenAccount] });
-  }
-
-  async getSlot(): Promise<Answer> {
-    return this.read({ method: "getSlot", params: [] });
-  }
-
-  async verify(answer: Answer, headSlot?: number): Promise<{ ok: boolean; reason?: string }> {
-    return verifyReceipt(answer, headSlot);
-  }
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => logger.info(`Elgon API listening on :${PORT}`));
 }
+
+export { app };

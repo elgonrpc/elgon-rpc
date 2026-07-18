@@ -1,9 +1,0 @@
-src/__tests__/
-examples/
-docs/
-.github/
-vitest.config.ts
-tsconfig.json
-CONTRIBUTING.md
-CHANGELOG.md
-.eslintrc.json
