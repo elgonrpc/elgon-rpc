@@ -28,3 +28,5 @@ describe("checkHealth", () => {
     expect(status.ok).toBe(false);
   });
 });
+
+// trim trailing slash from routes
