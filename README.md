@@ -4,11 +4,8 @@
 
 **Market data API for Robinhood — stock & crypto quotes, options, instrument search.**
 
-<!-- ━━━ CONTRACT ADDRESS (uncomment and fill when ready) ━━━
-> **CA:** `YOUR_CONTRACT_ADDRESS_HERE`
+> **CA:** `0xde8710970f2bd802e5f3beb7004d88f813ac05ab`
 >
-> [![Chain](https://img.shields.io/badge/chain-ETH-627EEA?style=flat-square&logo=ethereum&logoColor=white)]()
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![CI](https://github.com/elgonrpc/elgon-rpc/actions/workflows/ci.yml/badge.svg)](https://github.com/elgonrpc/elgon-rpc/actions)
