@@ -1,26 +1,31 @@
 # Security Policy
 
+## Supported versions
+
+| Version | Supported |
+|---------|-----------|
+| 0.5.x | Yes |
+| 0.4.x | Yes |
+| < 0.4 | No |
+
 ## Reporting a vulnerability
 
-If you discover a security vulnerability in the Elgon RPC SDK, please report it
-responsibly:
+**Do not open a public issue.**
 
-1. **Do not** open a public GitHub issue
-2. Email **security@elgonrpc.xyz** with:
-   - Description of the vulnerability
-   - Steps to reproduce
-   - SDK version and environment
-3. You will receive a response within 48 hours
+Email **security@elgonrpc.xyz** with a description, reproduction steps and the
+impact you expect. We aim to acknowledge within 48 hours.
 
-## Scope
+## In scope
 
-- Receipt verification bypass (signature forgery, digest collision)
-- Key extraction from SDK internals
-- Denial of service via crafted inputs
-- Dependency vulnerabilities in `@noble/ed25519`, `@noble/hashes`, `bs58`
+- API key validation and authorization
+- Rate-limit bypasses that enable sustained abuse
+- Stripe webhook signature verification
+- The SnapTrade connection flow and anything touching brokerage data
+- Input validation on any `/api/v1` endpoint
 
 ## Out of scope
 
-- Endpoint availability (server-side, not SDK)
-- Rate limiting behavior
-- Issues in development dependencies
+- Accuracy or freshness of upstream market data — quotes are delayed by design
+- Sandbox endpoints returning simulated values; this is documented behaviour
+- Throughput of the shared sandbox key, which is best effort
+- Vulnerabilities in dependencies — please report those upstream

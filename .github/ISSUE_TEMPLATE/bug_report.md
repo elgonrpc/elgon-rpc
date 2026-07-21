@@ -1,39 +1,24 @@
 ---
 name: Bug report
-about: Report a bug in the Elgon RPC SDK
+about: Report a bug in the Elgon API
 title: "[bug] "
 labels: bug
 assignees: ""
 ---
 
-**SDK version**
-<!-- e.g. 0.1.0 -->
-
 **Endpoint**
-<!-- e.g. https://rpc.elgonrpc.xyz -->
+<!-- e.g. GET /api/v1/quotes -->
 
-**Description**
-<!-- What happened vs. what you expected -->
-
-**Reproduction**
-<!-- Minimal code or steps to reproduce -->
-
-```ts
-// paste code here
+**Request**
+```bash
+curl "https://elgonrpc.xyz/api/v1/quotes?symbols=AAPL&key=elgon_sandbox_pub"
 ```
 
-**Receipt data (if verification bug)**
-<!-- Include answer, slot, and receipt fields -->
+**Expected**
 
-```json
-{
-  "answer": "",
-  "slot": 0,
-  "receipt": { "node": "", "stateCommitment": "", "sig": "" }
-}
-```
+**Actual**
+<!-- Include the response body and status code. Redact your API key. -->
 
 **Environment**
-- Node.js version:
-- OS:
-- Browser (if applicable):
+- Node.js:
+- Self-hosted or elgonrpc.xyz:

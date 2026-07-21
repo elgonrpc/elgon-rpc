@@ -1,23 +1,18 @@
 ---
 name: Feature request
-about: Suggest a new feature or improvement
-title: "[feature] "
+about: Suggest an endpoint or improvement
 labels: enhancement
 assignees: ""
 ---
 
 **Problem**
-<!-- What are you trying to do that the SDK doesn't support? -->
+<!-- What are you trying to build that Elgon does not support today? -->
 
 **Proposed solution**
-<!-- How should it work? Include API sketches if you have them. -->
-
-```ts
-// proposed API
-```
+<!-- Endpoint shape, parameters, response you would expect. -->
 
 **Alternatives considered**
-<!-- What workarounds have you tried? -->
 
-**Context**
-<!-- Any additional context — use case, related issues, etc. -->
+**Notes**
+<!-- Elgon serves delayed data and read-only brokerage access; requests that
+     need real-time feeds or order placement are out of scope. -->

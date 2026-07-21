@@ -1,6 +1,6 @@
 ## Summary
 
-<!-- What does this PR do? -->
+<!-- What does this change and why? -->
 
 ## Changes
 
@@ -8,12 +8,12 @@
 
 ## Test plan
 
-- [ ] Existing tests pass (`npm test`)
-- [ ] New tests added (if applicable)
-- [ ] TypeCheck passes (`npm run typecheck`)
+- [ ] `npm test` passes
+- [ ] `npm run lint` and `npm run typecheck` pass
+- [ ] Verified against a real request where applicable
 
-## Related issues
+## Checklist
 
-<!-- Closes #N / Ref #N -->
-
-// move error mapping to adapter
+- [ ] Delayed data is still labelled delayed
+- [ ] Sandbox endpoints are still labelled sandbox
+- [ ] Docs and `examples/` updated if the public surface changed
